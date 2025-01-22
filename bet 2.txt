@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúuk Note | Herramienta Química Interactiva</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- AOS (Animaciones al Desplazar) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #dcdcdc;
+      background: #1e1e1e;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #2a2a2a;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+
+    header .titulo-head {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header .titulo-head img {
+      height: 40px;
+    }
+
+    header .titulo-head h1 {
+      color: #dcdcdc;
+      font-size: 1.5rem;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #dcdcdc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #d4af37;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: url('C:/Users/josea.TDD/Documents/pruebas/Imagenes/imagen3.jpg') center/cover no-repeat;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background-color: #d4af37;
+      color: #1e1e1e;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .hero .btn:hover {
+      background-color: #b38e2d;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #d4af37;
+    }
+
+    section p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #0056b3;
+    }
+
+    /* Estadísticas */
+    #estadisticas {
+      background: #2a2a2a;
+      color: #dcdcdc;
+      padding: 4rem 2rem;
+    }
+
+    #estadisticas .stat {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    #estadisticas h3 {
+      font-size: 2rem;
+      color: #d4af37;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    footer nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
+    }
+
+    footer nav a {
+      color: #dcdcdc;
+      text-decoration: none;
+    }
+
+    footer nav a:hover {
+      color: #d4af37;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .footer-social a {
+      color: #dcdcdc;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-social a:hover {
+      color: #d4af37;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      header nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      #estadisticas {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="titulo-head">
+        <img src="C:/Users/josea.TDD/Documents/pruebas/Imagenes/logo2.png" alt="Logo 2" />
+        <h1>Chúuk Note</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="#herramienta">Herramienta</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <h1>Bienvenido a Chúuk Note</h1>
+    <p>Innovación para la química y la creatividad.</p>
+    <a href="#herramienta" class="btn">Probar Ahora</a>
+  </section>
+
+  <!-- Sobre Nosotros -->
+  <section id="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Chúuk Note comenzó como un proyecto sencillo para estudiantes de química y se ha convertido en una herramienta interactiva que ayuda a profesionales y entusiastas.
+    </p>
+  </section>
+
+  <!-- Herramienta -->
+  <section id="herramienta">
+    <h2>Herramienta</h2>
+    <p>
+      Accede a un lienzo interactivo para diseñar estructuras químicas de forma rápida y sencilla.
+    </p>
+    <a href="ruta-de-la-herramienta.html" class="btn-secondary">Abrir Herramienta</a>
+  </section>
+
+  <!-- Estadísticas -->
+  <section id="estadisticas">
+    <div class="stat">
+      <h3>+10,000</h3>
+      <p>Estructuras Creadas</p>
+    </div>
+    <div class="stat">
+      <h3>+5 Años</h3>
+      <p>De Innovación</p>
+    </div>
+    <div class="stat">
+      <h3>+1,000</h3>
+      <p>Usuarios Activos</p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form action="#" method="POST">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="correo">Correo Electrónico</label>
+      <input type="email" id="correo" name="correo" required />
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Chúuk Note. Todos los derechos reservados.</p>
+    <nav>
+      <ul>
+        <li><a href="#">Términos de Uso</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+      </ul>
+    </nav>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
